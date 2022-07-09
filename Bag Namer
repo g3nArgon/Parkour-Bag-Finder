@@ -1,0 +1,63 @@
+rconsoleprint("@@LIGHT_GRAY@@")
+rconsoleprint("          <----------------->          \n")
+rconsoleprint("                Bag Finder             \n")
+rconsoleprint("          <----------------->          \n\n")
+rconsoleprint("@@WHITE@@")
+
+function pbag(bagtype)
+    if bagtype == "Common" then
+        rconsoleprint("@@LIGHT_GREEN@@")
+        rconsoleprint("Bag Found:           Common\n")
+    elseif bagtype == "Uncommon"  then
+        rconsoleprint("@@GREEN@@")
+        rconsoleprint("Bag Found:           Uncommon\n")
+    elseif bagtype == "Rare" then
+        rconsoleprint("@@MAGENTA@@")
+        rconsoleprint("Bag Found:           Rare\n")
+    elseif bagtype == "Epic" then
+        rconsoleprint("@@CYAN@@")
+        rconsoleprint("Bag Found:           Epic\n")
+    elseif bagtype == "Legendary" then
+        rconsoleprint("@@YELLOW@@")
+        rconsoleprint("Bag Found:           Legendary\n")
+    elseif bagtype == "Ultimate" then
+        rconsoleprint("@@RED@@")
+        rconsoleprint("Bag Found:           Ultimate\n")
+    elseif bagtype == "Resplendent" then
+        rconsoleprint("@@BLUE@@")
+        rconsoleprint("Bag Found:           Resplendent\n")
+    elseif bagtype == "Other" then
+        rconsoleprint("@@WHITE@@")
+        rconsoleprint("Bag Found:           Other\n")
+    else
+        rconsoleprint("@@REDY@@")
+        rconsoleprint("Bag Found:           Error\n")
+    end
+end
+
+count = 0
+
+for _,v in pairs(game.workspace:GetChildren()) do
+    if v:FindFirstChild("BagTouchScript") and v:FindFirstChild("Rarity") then
+        print(v.Rarity.Value)
+        if v.Rarity.Value == "Common" then
+            pbag("Common")
+        elseif v.Rarity.Value == "Uncommon" then
+            pbag("Uncommon")
+        elseif v.Rarity.Value == "Rare" then
+            pbag("Rare")
+        elseif v.Rarity.Value == "Epic" then
+            pbag("Epic")
+        elseif v.Rarity.Value == "Legendary" then
+            pbag("Legendary")
+        elseif v.Rarity.Value == "Ultimate" then
+            pbag("Ultimate")
+        elseif v.Rarity.Value == "Resplendent" then
+            pbag("Resplendent")
+        else
+            rconsoleprint("@@WHITE@@")
+            a = v.Rarity.Value
+            rconsoleprint("Bag Found: " .. tostring(a) .. "\n")
+        end
+    end
+end
